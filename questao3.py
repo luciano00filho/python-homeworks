@@ -29,12 +29,10 @@ def main():
 		aux = input()
 		parada = procuraNome(aux,candidatos)
 		if (parada):
-			votacao.append(aux)
-		
+			votacao.append(aux)		
 	# DEBUGGING
 	# print("Candidatos:",candidatos)
 	# print("Votação:",votacao)
-
 	print()
 	for nome in candidatos:
 		print("%s com %d voto(s)" % (nome,procuraNome(nome,votacao,True)))
