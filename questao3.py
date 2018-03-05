@@ -11,10 +11,11 @@ print()
 print("Votação:")
 while True:
 	aux = input()
-	if aux.lower() not in candidatos.lower():
-		break
-	else:
-		votacao.append(aux)
+	for nome in candidatos:
+		if aux.lower() != nome.lower():
+			break
+		else:
+			votacao.append(aux)
 print("Candidatos:",candidatos)
 print("Votação:",votacao)
 print()
