@@ -1,32 +1,39 @@
 #/usr/bin/python3.6
 import sys
 
-def main():
-	dimensao, intervalo, matrix, rows, cols, vmin, vmax = '','',[[]],0,0,0,0
-	
-	dimensao = input("Qual o tamanho da matriz? ").split()
-	rows = int(dimensao[0]) # linhas
-	cols = int(dimensao[1]) # colunas
+def montaMatriz(linhas,colunas):
+	matriz = [0.0] * linhas
+	for i in range(linhas):
+		matriz[i] = [0.0] * colunas
+	return matriz
 
-	intervalo = input("Qual o intervalo de valores? ").split()
-	vmin = int(intervalo[0]) # mínimo
-	vmax = int(intervalo[1]) # máximo
+def geraNumeros(vmin,vmax,linhas,colunas):
+	for x in range(vmin,(linhas * colunas),1):
+		print("x1 =",x)
+
+def main():
+	dimension, interval, matrix, rows, cols, vmin, vmax, listaNum, cont = '','',[[]],0,0,0,0,[],0
+	
+	dimension = input("Qual o tamanho da matriz? ").split()
+	rows = int(dimension[0]) # linhas
+	cols = int(dimension[1]) # colunas
+
+	interval = input("Qual o intervalo de valores? ").split()
+	vmin = int(interval[0]) # mínimo
+	vmax = int(interval[1]) # máximo
 
 	# crio a matriz zerada
-	matrix = [0.0] * rows
-	for i in range(rows):
-		matrix[i] = [0.0] * cols
-	print(matrix)	
-
+	matrix = montaMatriz(rows,cols)
+	print("matrix =",matrix)
+	
 	# gero os números
-	cont = 0
-	listaNum = []
-	for x in range(0,(rows * cols)):
-		listaNum.append(x * 0.13)
-
+	geraNumeros(vmin,vmax,rows,cols)
+	sys.exit()
+	
 	# modifico a matriz
 	for i in range(rows):
 		for j in range(cols):
+			print("cont =",cont)
 			matrix[i][j] = listaNum[cont]
 			cont += 1
 	print(matrix)
